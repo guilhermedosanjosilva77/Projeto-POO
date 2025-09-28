@@ -32,7 +32,8 @@ public class Veiculo {
     }
 
     public String gerarRelatorio(){
-        return 
+        return "Veiculo:"+this.modelo+ "\n" +
+        "Marca:"+this.marca;
     }
     public String monitorarDesempenho(){
         return
