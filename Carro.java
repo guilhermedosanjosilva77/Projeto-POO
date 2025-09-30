@@ -45,10 +45,45 @@ public class Carro extends VeiculoCombustao {
     public void setModoconduccao(String modoconduccao) {
         this.modoconduccao = modoconduccao;
     }
-    public double calculoDesgastePneu(){
-        return 2.0;
-    }
+    public double calculoDesgastePneu(double distancia,double tipoDeTerreno, double fatordeuso, double pressao,double superficiedecontato){
+        this.desgastepneu=(distancia*tipoDeTerreno*fatordeuso)/(pressao*superficiedecontato);
+        if(tipoDeTerreno ==1){
+            tipoDeTerreno=1;
+        }
+        else if(tipoDeTerreno ==2){
+            tipoDeTerreno=1.5;
+        }
+        else if (tipoDeTerreno ==3) {
+            tipoDeTerreno=2;
+            
+        }
+        else tipoDeTerreno = 3;
 
+        //fator de uso valores
+        if(fatordeuso ==1){
+            fatordeuso=1;
+        }
+        else if(fatordeuso==2){
+            fatordeuso=1.2;
+        }
+        else if (fatordeuso ==3) {
+            fatordeuso=1.5;
+            
+        }
+        else fatordeuso = 2;
+
+        //valores superficie de contato
+           if(superficiedecontato ==1){
+            fatordeuso=1;
+        }
+        else if(superficiedecontato==2){
+            fatordeuso=1.2;
+        }
+        else fatordeuso = 1.5;
+
+        return this.desgastepneu;
+    }
+    
     
 
     
