@@ -2,18 +2,18 @@ import java.util.Scanner;
 
 public class TesteVeiculo {
     public static void main(String[] args) {
-        VeiculoCombustao v1 = new VeiculoCombustao("lxs", "Honda", 0, 0, 0, 0);
+        VeiculoCombustao v1 = new VeiculoCombustao("lxs", "Honda", 0, 0, 0, 0, 0);
         Scanner scan = new Scanner(System.in);
         System.out.println("=====================================================================================");
 
         System.out.println("Consumo ideal esperado para a semana ");
         System.out.println("Quilometragem esperada:");
-        double distancia=scan.nextDouble();
+        v1.distancia=scan.nextDouble();
 
         System.out.println("Litragem esperada:");
         double combustivelgasto = scan.nextDouble();
 
-        System.out.println("O consumo ideal para essa semana é de: " + v1.calcularConsumoMedio(distancia, combustivelgasto) +" km por litro");
+        System.out.println("O consumo ideal para essa semana é de: " + v1.calcularConsumoMedio( combustivelgasto) +" km por litro");
         System.out.println("==========================================");
 
         System.out.println("Consumo real de combustivel durante a semana");

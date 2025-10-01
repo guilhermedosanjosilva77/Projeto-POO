@@ -2,16 +2,13 @@ public class Carro extends VeiculoCombustao {
     double desgastepneu;
     double niveloleo;
     double capacidadecarter;
-    String modoconduccao;
 
     public Carro(String modelo, String marca, double velocidadeAtual, double consumoMedio, double nivelCombustivel,
-            double perdaDeCombustivel, double desgastepneu, double niveloleo, double capacidadecarter,
-            String modoconduccao) {
-        super(modelo, marca, velocidadeAtual, consumoMedio, nivelCombustivel, perdaDeCombustivel);
+            double perdaDeCombustivel, double desgastepneu, double niveloleo, double capacidadecarter) {
+        super(modelo, marca, velocidadeAtual, consumoMedio, nivelCombustivel, perdaDeCombustivel, capacidadecarter);
         this.desgastepneu = desgastepneu;
         this.niveloleo = niveloleo;
         this.capacidadecarter = capacidadecarter;
-        this.modoconduccao = modoconduccao;
     }
 
     public double getDesgastepneu() {
@@ -37,51 +34,54 @@ public class Carro extends VeiculoCombustao {
     public void setCapacidadecarter(double capacidadecarter) {
         this.capacidadecarter = capacidadecarter;
     }
-
-    public String getModoconduccao() {
-        return modoconduccao;
+    public double calculoDesgastePneu(double tipoDeTerreno, double fatordeuso, double pressao,double superficiedecontato){
+        
+         if (tipoDeTerreno == 1) {
+        tipoDeTerreno = 1;
+    } else if (tipoDeTerreno == 2) {
+        tipoDeTerreno = 1.5;
+    } else if (tipoDeTerreno == 3) {
+        tipoDeTerreno = 2;
+    } else {
+        tipoDeTerreno = 3;
     }
 
-    public void setModoconduccao(String modoconduccao) {
-        this.modoconduccao = modoconduccao;
+    // Conversão do fator de uso
+    if (fatordeuso == 1) {
+        fatordeuso = 1;
+    } else if (fatordeuso == 2) {
+        fatordeuso = 1.2;
+    } else if (fatordeuso == 3) {
+        fatordeuso = 1.5;
+    } else {
+        fatordeuso = 2;
     }
-    public double calculoDesgastePneu(double distancia,double tipoDeTerreno, double fatordeuso, double pressao,double superficiedecontato){
-        this.desgastepneu=(distancia*tipoDeTerreno*fatordeuso)/(pressao*superficiedecontato);
-        if(tipoDeTerreno ==1){
-            tipoDeTerreno=1;
-        }
-        else if(tipoDeTerreno ==2){
-            tipoDeTerreno=1.5;
-        }
-        else if (tipoDeTerreno ==3) {
-            tipoDeTerreno=2;
+
+    //Conversão da superfície de contato (alinhamento) 
+    if (superficiedecontato == 1) {
+        superficiedecontato = 1;
+    } else if (superficiedecontato == 2) {
+        superficiedecontato = 1.2;
+    } else {
+        superficiedecontato = 1.5;
+    }
+
+    this.desgastepneu = (this.distancia * tipoDeTerreno * fatordeuso) / (pressao * superficiedecontato);
+
+    return this.desgastepneu;
+    }
+    public double calculoDesgastePneu(int tempo){
+        if (tempo > 12 || this.distancia >10000) {
+            System.out.println("TROCA DE OLÉO NECESSÁRIA");
             
         }
-        else tipoDeTerreno = 3;
+        else
+        niveloleo=10000/(int)this.distancia;
 
-        //fator de uso valores
-        if(fatordeuso ==1){
-            fatordeuso=1;
-        }
-        else if(fatordeuso==2){
-            fatordeuso=1.2;
-        }
-        else if (fatordeuso ==3) {
-            fatordeuso=1.5;
-            
-        }
-        else fatordeuso = 2;
+        return niveloleo;
 
-        //valores superficie de contato
-           if(superficiedecontato ==1){
-            fatordeuso=1;
-        }
-        else if(superficiedecontato==2){
-            fatordeuso=1.2;
-        }
-        else fatordeuso = 1.5;
 
-        return this.desgastepneu;
+
     }
     
     
