@@ -1,15 +1,15 @@
 public class Carro extends VeiculoCombustao {
-    double desgastepneu;
+   
+     double desgastepneu;
     double niveloleo;
-    double capacidadecarter;
 
     public Carro(String modelo, String marca, double velocidadeAtual, double consumoMedio, double nivelCombustivel,
-            double perdaDeCombustivel, double desgastepneu, double niveloleo, double capacidadecarter) {
-        super(modelo, marca, velocidadeAtual, consumoMedio, nivelCombustivel, perdaDeCombustivel, capacidadecarter);
-        this.desgastepneu = desgastepneu;
-        this.niveloleo = niveloleo;
-        this.capacidadecarter = capacidadecarter;
-    }
+    double perdaDeCombustivel, double distancia, double desgastepneu, double niveloleo) { // 9 parâmetros
+    
+    super(modelo, marca, velocidadeAtual, consumoMedio, nivelCombustivel, perdaDeCombustivel, distancia);
+    this.desgastepneu = desgastepneu;
+    this.niveloleo = niveloleo;
+}
 
     public double getDesgastepneu() {
         return desgastepneu;
@@ -26,14 +26,7 @@ public class Carro extends VeiculoCombustao {
     public void setNiveloleo(double niveloleo) {
         this.niveloleo = niveloleo;
     }
-
-    public double getCapacidadecarter() {
-        return capacidadecarter;
-    }
-
-    public void setCapacidadecarter(double capacidadecarter) {
-        this.capacidadecarter = capacidadecarter;
-    }
+ 
     public double calculoDesgastePneu(double tipoDeTerreno, double fatordeuso, double pressao,double superficiedecontato){
         
          if (tipoDeTerreno == 1) {
@@ -83,8 +76,25 @@ public class Carro extends VeiculoCombustao {
 
 
     }
+    @Override
+    public String gerarRelatorio(){
+        String relatorioBase =super.gerarRelatorio() +"\n";
+        if(niveloleo < 5){
+            return relatorioBase +" Veiculo precisando trocar o Oleo dentro das próximas semanas " + niveloleo + " semanas";
+        }
+        else return relatorioBase + "Troca oleo em dia!";
+
+
+            
+        }
+
+
+    }
+
+       
+
     
     
 
     
-}
+

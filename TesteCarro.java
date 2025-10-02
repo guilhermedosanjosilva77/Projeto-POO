@@ -7,7 +7,6 @@
             Scanner scan = new Scanner(System.in);
 
             System.out.println("---------DESGASTE DE PNEU PREVISTO NA SEMANA --------------- "+"\n");
-            boolean teste = true;
             System.out.println("Distancia prevista:");
             carro.distancia=scan.nextDouble();
         
@@ -57,9 +56,11 @@
             int tempo = scan.nextInt();
 
             System.out.println("------------------------------RESULTADO-------------------------");
-            System.out.println("A troca de óleo de seu carro precisa ser feito dentro de "+ carro.calculoDesgastePneu(tempo)+" semanas");
+            System.out.println("A troca de óleo de seu carro baseando-se na sua distância semanal indica que sua troca de oleo precisa ser feito dentro de: "+ carro.calculoDesgastePneu(tempo)+" semanas");
 
+            System.out.println("================================RELATORIO===============================");
 
+            System.err.println(carro.gerarRelatorio());
 
             
 

@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 
 public class Veiculo {
     String modelo;
@@ -35,11 +35,6 @@ public class Veiculo {
         return "Veiculo:"+this.modelo+ "\n" +
         "Marca:"+this.marca;
     }
-    public String monitorarDesempenho(){
-        return
-
-    }
-
     
 
 

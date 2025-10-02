@@ -4,7 +4,7 @@ public class Drone extends VeiculoEletrico{
     double tempoVoo;
 
 
-    public Drone(String modelo, String marca, double velocidadeAtual, double altitudeMax, double tempoVoo) {
+    public Drone() {
         super(modelo, marca, velocidadeAtual);
         this.altitudeMax = altitudeMax;
         this.tempoVoo = tempoVoo;
