@@ -2,7 +2,10 @@ public class Drone extends VeiculoEletrico {
 
     // Atributos específicos do Drone
     private double altitudeMax; 
-    private double tempoVoo;    
+    private double tempoVoo;  
+    public String modelo;  
+    public String marca;  
+    public double velocidadeAtual;  
 
     // Construtor Completo
     public Drone(String modelo, String marca, double velocidadeAtual, double capacidadeBateria, 
